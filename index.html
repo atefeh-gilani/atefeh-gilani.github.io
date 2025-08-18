@@ -8,17 +8,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #800020;
-            --accent-color: #5d8aa8;
-            --secondary-color: #4682b4;
-            --tertiary-color: #a0522d;
+            --primary-color: #800020;      /* Burgundy */
+            --accent-color: #5d8aa8;       /* Air Force Blue */
+            --secondary-color: #5d8aa8;    /* Air Force Blue */
+            --tertiary-color: #800020;     /* Burgundy */
             --text-dark: #2c3e50;
             --text-light: #7f8c8d;
             --background: #ffffff;
             --light-bg: #f8f9fa;
             --border: #e9ecef;
             --hover-bg: #f1f3f4;
-            --gradient: linear-gradient(135deg, var(--primary-color), var(--accent-color));
         }
 
         * {
@@ -111,10 +110,10 @@
         }
 
         .contact-links a:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            background: var(--secondary-color);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+            box-shadow: 0 5px 15px rgba(93, 138, 168, 0.3);
         }
 
         .availability {
@@ -159,10 +158,7 @@
 
         .section-title {
             font-size: 1.8rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
             margin-bottom: 2rem;
             font-weight: bold;
             position: relative;
@@ -175,7 +171,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--gradient);
+            background: var(--primary-color);
             border-radius: 2px;
         }
 
@@ -215,10 +211,7 @@
         }
 
         .pub-title a {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -237,10 +230,7 @@
 
         .pub-venue {
             font-size: 0.9rem;
-            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--secondary-color);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -253,7 +243,7 @@
         }
 
         .pub-links a {
-            background: var(--gradient);
+            background: var(--accent-color);
             color: white;
             text-decoration: none;
             font-size: 0.85rem;
@@ -268,7 +258,7 @@
         .pub-links a:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(93, 138, 168, 0.4);
-            background: linear-gradient(135deg, var(--tertiary-color), var(--primary-color));
+            background: var(--primary-color);
         }
 
         .tldr {
@@ -543,6 +533,7 @@
                         <a href="https://doi.org/10.3390/e21050478" target="_blank">DOI</a>
                     </div>
                 </div>
+            </section>
         </main>
     </div>
 
