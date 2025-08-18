@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atefeh Gilani</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #800020;
+            --accent-color: #5d8aa8;
+            --secondary-color: #4682b4;
+            --tertiary-color: #a0522d;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background: #ffffff;
+            --light-bg: #f8f9fa;
+            --border: #e9ecef;
+            --hover-bg: #f1f3f4;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header-text {
+            width: 100%;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(93, 138, 168, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 35px rgba(128, 0, 32, 0.3);
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-links a:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        .availability {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            margin: 1.5rem 0;
+        }
+
+        .availability strong {
+            color: var(--primary-color);
+        }
+
+        /* Main content */
+        .main-content {
+            min-height: 100vh;
+        }
+        .intro {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            text-align: justify;
+        }
+
+        .intro a {
+            color: var(--tertiary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .intro a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Publications */
+        .publication {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .publication:nth-child(even) {
+            border-left-color: var(--primary-color);
+            background: linear-gradient(135deg, #fff 0%, #fff8f8 100%);
+        }
+
+        .publication:nth-child(3n) {
+            border-left-color: var(--tertiary-color);
+            background: linear-gradient(135deg, #fff 0%, #fffaf6 100%);
+        }
+
+        .publication:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-title a {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pub-title a:hover {
+            text-shadow: 0 2px 10px rgba(128, 0, 32, 0.3);
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .pub-venue {
+            font-size: 0.9rem;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-links a {
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(93, 138, 168, 0.3);
+        }
+
+        .pub-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(93, 138, 168, 0.4);
+            background: linear-gradient(135deg, var(--tertiary-color), var(--primary-color));
+        }
+
+        .tldr {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tldr-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-org {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .exp-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-description {
+            color: var(--text-dark);
+        }
+
+        .exp-description ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .exp-description li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Personal section */
+        .personal {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .header {
+                text-align: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .pub-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Smooth transitions */
+        a {
+            transition: all 0.2s ease;
+        }
+
+        .publication {
+            transition: transform 0.2s ease;
+        }
+
+        .publication:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">Atefeh Gilani</h1>
+            <p class="title">Ph.D. Candidate in Electrical Engineering, Arizona State University</p>
+            
+            <div class="contact-links">
+                <a href="mailto:agilani2@asu.edu">
+                    <i class="fas fa-envelope"></i> agilani2@asu.edu
+                </a>
+                <a href="http://linkedin.com/in/atefeh-gilani-007a9b16b" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://scholar.google.com/citations?user=fHgVg2QAAAAJ" target="_blank">
+                    <i class="ai ai-google-scholar"></i> Google Scholar
+                </a>
+            </div>
+
+
+        </header>
+
+        <main>
+            <div class="intro">
+                Hello! I am a Ph.D. student at <a href="https://www.asu.edu/" target="_blank">Arizona State University</a>, currently visiting <a href="https://seas.harvard.edu/" target="_blank">Harvard University</a>. 
+
+                <br><br>
+
+                My research focuses on bridging theory and practice in machine learning, with a particular emphasis on <strong>responsible AI</strong>. I use tools from information theory and optimization to design algorithms with strong theoretical foundations, which I then implement and validate at scale using frameworks like PyTorch and JAX. Recent work includes privacy-preserving learning via differential privacy, as well as model authentication and ownership verification through multi-bit watermarking in large language models. Overall, my goal is to develop ML systems that are not only provably sound but also robust, efficient, and deployable in real-world settings. I am always open for collaborations and can be reached via email!
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">Publications</h2>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2506.06549" target="_blank">Geometry-Aware Gradient Clipping for Differentially Private SGD</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
+                    </div>
+                    <div class="pub-venue">NeurIPS 2025 (under review)</div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2506.06549" target="_blank">arXiv</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
+                    </div>
+                    <div class="pub-venue">ICML 2025</div>
+                    <div class="pub-links">
+                        <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">Reveal-or-Obscure: A Differentially Private Sampling Algorithm for Discrete Distributions</a>
+                    </div>
+                    <div class="pub-authors">
+                        Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
+                    </div>
+                    <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
+                    <div class="pub-links">
+                        <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">Unifying Privacy Measures via Maximal (α,β)-Leakage (MαbeL)</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
+                    <div class="pub-links">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
+                    </div>
+                    <div class="pub-venue">TPDP Workshop 2024</div>
+                    <div class="pub-links">
+                        <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">An Alphabet of Leakage Measures</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+                    </div>
+                    <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
+                    <div class="pub-links">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href="https://doi.org/10.3390/e21050478" target="_blank">Distributed Hypothesis Testing with Privacy Constraints</a>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Atefeh Gilani</strong>, Selma Belhadj Amor, Sadaf Salehkalaibar, Vincent YF Tan
+                    </div>
+                    <div class="pub-venue">Entropy 2019</div>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.3390/e21050478" target="_blank">DOI</a>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+    <script>
+        // Add smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle fade-in animation for publications on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in animation to publications
+        document.querySelectorAll('.publication, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add a subtle typing effect to the name (optional)
+        const nameElement = document.querySelector('.name');
+        const originalText = nameElement.textContent;
+        nameElement.textContent = '';
+        
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < originalText.length) {
+                nameElement.textContent += originalText[i];
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 80);
+    </script>
+</body>
+</html>
