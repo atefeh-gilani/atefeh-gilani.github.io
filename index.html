@@ -175,7 +175,7 @@
             border-radius: 2px;
         }
 
-        /* Publications */
+        /* Publications - Clean Professional Style */
         .publication {
             margin-bottom: 2.5rem;
             padding: 0;
@@ -183,52 +183,49 @@
         }
 
         .publication:hover {
-            transform: translateX(8px);
-        }
-
-        .publication:last-child {
-            border-bottom: none;
+            transform: translateX(5px);
         }
 
         .pub-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 0.8rem;
-        }
-
-        .pub-title a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
             line-height: 1.4;
         }
 
+        .pub-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
         .pub-title a:hover {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         .pub-authors {
             font-size: 1rem;
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.5;
         }
 
         .pub-authors strong {
             color: var(--primary-color);
+            font-weight: 600;
         }
 
         .pub-venue {
             font-size: 0.95rem;
             color: var(--text-light);
-            font-weight: 500;
-            margin-bottom: 1rem;
             font-style: italic;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
         }
 
         .pub-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-bottom: 0;
             flex-wrap: wrap;
         }
@@ -238,14 +235,31 @@
             color: var(--accent-color);
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 0.3rem 0;
+            padding: 0;
             border: none;
             transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
+        }
+
+        .pub-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
         .pub-links a:hover {
             color: var(--primary-color);
+        }
+
+        .pub-links a:hover:after {
+            width: 100%;
+            background-color: var(--primary-color);
         }
 
         .tldr {
@@ -393,7 +407,7 @@
         }
 
         .publication:hover {
-            transform: translateY(-2px);
+            transform: translateX(5px);
         }
     </style>
 </head>
@@ -437,9 +451,6 @@
                         <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
                     </div>
                     <div class="pub-venue">Under review</div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2506.06549" target="_blank">arXiv</a>
-                    </div>
                 </div>
 
                 <div class="publication">
@@ -450,9 +461,6 @@
                         <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">ICML 2025</div>
-                    <div class="pub-links">
-                        <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">PDF</a>
-                    </div>
                 </div>
 
                 <div class="publication">
@@ -463,9 +471,6 @@
                         Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
                     </div>
                     <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
-                    <div class="pub-links">
-                        <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">PDF</a>
-                    </div>
                 </div>
 
                 <div class="publication">
@@ -476,9 +481,6 @@
                         <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
-                    <div class="pub-links">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">PDF</a>
-                    </div>
                 </div>
 
                 <div class="publication">
@@ -489,9 +491,6 @@
                         <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">TPDP Workshop 2024</div>
-                    <div class="pub-links">
-                        <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">PDF</a>
-                    </div>
                 </div>
 
                 <div class="publication">
@@ -502,9 +501,6 @@
                         <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
-                    <div class="pub-links">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">PDF</a>
-                    </div>
                 </div>
             </section>
         </main>
