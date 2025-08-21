@@ -8,16 +8,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #800020;      /* Burgundy */
-            --accent-color: #000080;       /* Navy Blue */
-            --secondary-color: #000080;    /* Navy Blue */
-            --tertiary-color: #800020;     /* Burgundy */
+            --primary-color: #1a472a;      /* Deep Forest Green - security/encryption */
+            --accent-color: #0f3460;       /* Deep Navy - trust/security */
+            --secondary-color: #0f3460;    /* Deep Navy */
+            --tertiary-color: #1a472a;     /* Deep Forest Green */
             --text-dark: #2c3e50;
             --text-light: #7f8c8d;
             --background: #ffffff;
-            --light-bg: #f8f9fa;
+            --light-bg: #f8faf9;
             --border: #e9ecef;
-            --hover-bg: #f1f3f4;
+            --hover-bg: #f1f5f3;
+            --math-overlay: rgba(26, 71, 42, 0.03);
         }
 
         * {
@@ -31,6 +32,33 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--background);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "ε-DP ∑ log₂ H(X|Y) ∇θ ∂L/∂θ σ² δ-privacy ∈ ℝⁿ ∥·∥₂ ∇f(x) ⊕ ∧ ∨ ¬ → ∀x∃y P(X=x) I(X;Y) KL(P∥Q) max min arg sup inf lim ∫ ∂ ∇ Σ Π ⊗ ⊕ ∈ ∉ ⊆ ⊇ ∪ ∩ ∅ ℕ ℤ ℚ ℝ ℂ α β γ δ ε ζ η θ λ μ π ρ σ τ φ χ ψ ω Α Β Γ Δ Ε Ζ Η Θ Λ Μ Π Ρ Σ Τ Φ Χ Ψ Ω";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            font-size: 0.7rem;
+            font-family: 'Courier New', monospace;
+            color: var(--math-overlay);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 2.5;
+            letter-spacing: 0.3rem;
+            z-index: -1;
+            pointer-events: none;
+            animation: mathFloat 120s linear infinite;
+            transform: rotate(-15deg);
+        }
+
+        @keyframes mathFloat {
+            0% { transform: translate(-10%, -10%) rotate(-15deg); }
+            100% { transform: translate(-5%, -5%) rotate(-15deg); }
         }
 
         .container {
@@ -68,14 +96,15 @@
             object-fit: cover;
             border: 4px solid white;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 128, 0.2);
+            box-shadow: 0 8px 25px rgba(15, 52, 96, 0.2);
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
         .profile-image:hover {
             transform: scale(1.05);
             border-color: white;
-            box-shadow: 0 12px 35px rgba(128, 0, 32, 0.3);
+            box-shadow: 0 12px 35px rgba(26, 71, 42, 0.3);
         }
 
         .name {
@@ -133,7 +162,7 @@
         /* Main content */
         .main-content {
             min-height: 100vh;
-            margin-top: 3rem;
+            margin-top: 5rem;
         }
         .intro {
             font-size: 1.1rem;
