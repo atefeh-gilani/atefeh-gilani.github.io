@@ -37,23 +37,23 @@
         }
 
         body::before {
-            content: "ε-DP ∑ log₂ H(X|Y) ∇θ ∂L/∂θ σ² δ-privacy ∈ ℝⁿ ∥·∥₂ ∇f(x) ⊕ ∧ ∨ ¬ → ∀x∃y P(X=x) I(X;Y) KL(P∥Q) max min arg sup inf lim ∫ ∂ ∇ Σ Π ⊗ ⊕ ∈ ∉ ⊆ ⊇ ∪ ∩ ∅ ℕ ℤ ℚ ℝ ℂ α β γ δ ε ζ η θ λ μ π ρ σ τ φ χ ψ ω Α Β Γ Δ Ε Ζ Η Θ Λ Μ Π Ρ Σ Τ Φ Χ Ψ Ω";
+            content: "ε-DP ∑ log₂ H(X|Y) ∇θ ∂L/∂θ σ² δ-privacy ∈ ℝⁿ ∥·∥₂ ∇f(x) ⊕ ∧ ∨ ¬ → ∀x∃y P(X=x) I(X;Y) KL(P∥Q) max min arg sup inf lim ∫ ∂ ∇ Σ Π ⊗ ⊕ ∈ ∉ ⊆ ⊇ ∪ ∩ ∅ ℕ ℤ ℚ ℝ ℂ α β γ δ ε ζ η θ λ μ π ρ σ τ φ χ ψ ω Α Β Γ Δ Ε Ζ Η Θ Λ Μ Π Ρ Σ Τ Φ Χ Ψ Ω ε-DP ∑ log₂ H(X|Y) ∇θ ∂L/∂θ σ² δ-privacy ∈ ℝⁿ ∥·∥₂ ∇f(x) ⊕ ∧ ∨ ¬ → ∀x∃y P(X=x) I(X;Y) KL(P∥Q) max min arg sup inf lim ∫ ∂ ∇ Σ Π ⊗ ⊕ ∈ ∉ ⊆ ⊇ ∪ ∩ ∅ ℕ ℤ ℚ ℝ ℂ α β γ δ ε ζ η θ λ μ π ρ σ τ φ χ ψ ω";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 150%;
-            height: 150%;
-            font-size: 0.7rem;
+            top: -20%;
+            left: -20%;
+            width: 200%;
+            height: 200%;
+            font-size: 0.9rem;
             font-family: 'Courier New', monospace;
-            color: var(--math-overlay);
+            color: rgba(26, 71, 42, 0.08);
             white-space: pre-wrap;
             word-wrap: break-word;
-            line-height: 2.5;
-            letter-spacing: 0.3rem;
+            line-height: 3;
+            letter-spacing: 0.5rem;
             z-index: -1;
             pointer-events: none;
-            animation: mathFloat 120s linear infinite;
-            transform: rotate(-15deg);
+            animation: mathFloat 150s linear infinite;
+            transform: rotate(-12deg);
         }
 
         @keyframes mathFloat {
@@ -144,7 +144,7 @@
             background: var(--secondary-color);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 128, 0.3);
+            box-shadow: 0 5px 15px rgba(15, 52, 96, 0.3);
         }
 
         .availability {
@@ -203,8 +203,19 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 2px;
+        }
+
+        .section-title::before {
+            content: "∇ε";
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            color: var(--math-overlay);
+            opacity: 0.6;
         }
 
         /* Publications - Clean Professional Style */
@@ -487,7 +498,7 @@
                         <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
                     </div>
                     <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
+                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">ICML 2025</div>
                 </div>
@@ -517,7 +528,7 @@
                         <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
                     </div>
                     <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio P. Calmon, Oliver Kosut, Lalitha Sankar
+                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
                     </div>
                     <div class="pub-venue">TPDP Workshop 2024</div>
                 </div>
