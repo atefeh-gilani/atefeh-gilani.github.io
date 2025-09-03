@@ -129,11 +129,17 @@
             padding-left: 1rem;
         }
 
-        /* Header */
+        /* Header - only show in home tab */
         .header {
             margin-bottom: 2rem;
             text-align: center;
             padding-left: 2rem;
+        }
+
+        /* Hide header in non-home tabs */
+        #research .header,
+        #publications .header {
+            display: none;
         }
 
         .header-text {
@@ -409,9 +415,13 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
-            .container {
+            .container.home-layout {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .container.content-layout {
                 padding: 2rem 1rem;
             }
 
