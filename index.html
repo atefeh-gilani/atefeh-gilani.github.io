@@ -159,11 +159,73 @@
             color: var(--primary-color);
         }
 
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-family: inherit;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-color);
+            background-color: var(--hover-bg);
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            background-color: var(--light-bg);
+            border: 2px solid var(--primary-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Main content */
         .main-content {
             min-height: 100vh;
             margin-top: 5rem;
         }
+
         .intro {
             font-size: 1.1rem;
             line-height: 1.7;
@@ -403,6 +465,28 @@
             line-height: 1.6;
         }
 
+        /* Empty state for Research tab */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            border: 2px dashed var(--border);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
@@ -437,6 +521,16 @@
             .pub-links {
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+
+            .tab-nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.6rem 1rem;
+                font-size: 1rem;
             }
         }
 
@@ -474,79 +568,128 @@
         </header>
 
         <main class="main-content">
-            <div class="intro">
-               I am a Ph.D. student at Arizona State University and currently a visiting researcher at Harvard University. My research focuses on bridging theory and practice in machine learning, with an emphasis on 
-                responsible AI. I leverage tools from information theory, coding theory, optimization, and statistics to design algorithms that are both theoretically grounded and practically relevant. Recently, my work 
-                has explored privacy-preserving learning with differential privacy and model authentication through watermarking in large language models.
+            <!-- Tab Navigation -->
+            <nav class="tab-nav">
+                <button class="tab-button active" data-tab="home">Home</button>
+                <button class="tab-button" data-tab="research">Research</button>
+                <button class="tab-button" data-tab="publications">Publications</button>
+            </nav>
+
+            <!-- Home Tab Content -->
+            <div id="home" class="tab-content active">
+                <div class="intro">
+                   I am a Ph.D. student at Arizona State University and currently a visiting researcher at Harvard University. My research focuses on bridging theory and practice in machine learning, with an emphasis on 
+                    responsible AI. I leverage tools from information theory, coding theory, optimization, and statistics to design algorithms that are both theoretically grounded and practically relevant. Recently, my work 
+                    has explored privacy-preserving learning with differential privacy and model authentication through watermarking in large language models.
+                </div>
             </div>
 
-            <section class="section">
-                <h2 class="section-title">Publications</h2>
-
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2506.06549" target="_blank">Geometry-Aware Gradient Clipping for Differentially Private SGD</a>
-                    </div>
-                    <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
-                    </div>
-                    <div class="pub-venue">Under review</div>
+            <!-- Research Tab Content -->
+            <div id="research" class="tab-content">
+                <div class="empty-state">
+                    <i class="fas fa-flask"></i>
+                    <h3>Research Section</h3>
+                    <p>This section is currently being prepared. Please check back soon!</p>
                 </div>
+            </div>
 
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
-                    </div>
-                    <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
-                    </div>
-                    <div class="pub-venue">ICML 2025</div>
-                </div>
+            <!-- Publications Tab Content -->
+            <div id="publications" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">Publications</h2>
 
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">Reveal-or-Obscure: A Differentially Private Sampling Algorithm for Discrete Distributions</a>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2506.06549" target="_blank">Geometry-Aware Gradient Clipping for Differentially Private SGD</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
+                        </div>
+                        <div class="pub-venue">Under review</div>
                     </div>
-                    <div class="pub-authors">
-                        Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
-                    </div>
-                    <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
-                </div>
 
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">Unifying Privacy Measures via Maximal (α,β)-Leakage (MαbeL)</a>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">ICML 2025</div>
                     </div>
-                    <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
-                    </div>
-                    <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
-                </div>
 
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">Reveal-or-Obscure: A Differentially Private Sampling Algorithm for Discrete Distributions</a>
+                        </div>
+                        <div class="pub-authors">
+                            Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
+                        </div>
+                        <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
                     </div>
-                    <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
-                    </div>
-                    <div class="pub-venue">TPDP Workshop 2024</div>
-                </div>
 
-                <div class="publication">
-                    <div class="pub-title">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">An Alphabet of Leakage Measures</a>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">Unifying Privacy Measures via Maximal (α,β)-Leakage (MαbeL)</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
                     </div>
-                    <div class="pub-authors">
-                        <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">TPDP Workshop 2024</div>
                     </div>
-                    <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
-                </div>
-            </section>
+
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">An Alphabet of Leakage Measures</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 
     <script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        }
+
+        // Add event listeners to tab buttons
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                switchTab(tabName);
+            });
+        });
+
         // Add smooth scrolling for any internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
