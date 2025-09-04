@@ -116,13 +116,23 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem 2rem 2rem;
+        }
+
+        /* Home tab has grid layout with sidebar */
+        .container.home-layout {
             display: grid;
             grid-template-columns: 280px 1fr;
             gap: 5rem;
             align-items: start;
         }
 
-        /* Sidebar */
+        /* Other tabs have centered single column layout */
+        .container.content-layout {
+            max-width: 800px;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        /* Sidebar - only for home tab */
         .sidebar {
             position: sticky;
             top: calc(70px + 3rem);
@@ -484,108 +494,112 @@
 
     <!-- Main page content -->
     <div class="page-content">
-        <div class="container">
-            <header class="header">
-                <img src="atefeh1.jpg" alt="Atefeh Gilani" class="profile-image">
-                <h1 class="name">Atefeh Gilani</h1>
-                
-                <div class="contact-links">
-                    <a href="mailto:agilani2@asu.edu">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    <a href="http://linkedin.com/in/atefeh-gilani-007a9b16b" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=fHgVg2QAAAAJ" target="_blank">
-                        <i class="ai ai-google-scholar"></i> Google Scholar
-                    </a>
-                </div>
-            </header>
+        <!-- Home Tab Content -->
+        <div id="home" class="tab-content active">
+            <div class="container home-layout">
+                <header class="header">
+                    <img src="atefeh1.jpg" alt="Atefeh Gilani" class="profile-image">
+                    <h1 class="name">Atefeh Gilani</h1>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:agilani2@asu.edu">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                        <a href="http://linkedin.com/in/atefeh-gilani-007a9b16b" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=fHgVg2QAAAAJ" target="_blank">
+                            <i class="ai ai-google-scholar"></i> Google Scholar
+                        </a>
+                    </div>
+                </header>
 
-            <main class="main-content">
-                <!-- Home Tab Content -->
-                <div id="home" class="tab-content active">
+                <main class="main-content">
                     <div class="intro">
                        I am a Ph.D. student at Arizona State University and currently a visiting researcher at Harvard University. My research focuses on bridging theory and practice in machine learning, with an emphasis on 
                         responsible AI. I leverage tools from information theory, coding theory, optimization, and statistics to design algorithms that are both theoretically grounded and practically relevant. Recently, my work 
                         has explored privacy-preserving learning with differential privacy and model authentication through watermarking in large language models.
                     </div>
-                </div>
+                </main>
+            </div>
+        </div>
 
-                <!-- Research Tab Content -->
-                <div id="research" class="tab-content">
-                    <div class="empty-state">
-                        <i class="fas fa-flask"></i>
-                        <h3>Research Section</h3>
-                        <p>This section is currently being prepared. Please check back soon!</p>
+        <!-- Research Tab Content -->
+        <div id="research" class="tab-content">
+            <div class="container content-layout">
+                <div class="empty-state">
+                    <i class="fas fa-flask"></i>
+                    <h3>Research Section</h3>
+                    <p>This section is currently being prepared. Please check back soon!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications Tab Content -->
+        <div id="publications" class="tab-content">
+            <div class="container content-layout">
+                <section class="section">
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2506.06549" target="_blank">Geometry-Aware Gradient Clipping for Differentially Private SGD</a>
+                        </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
+                        </div>
+                        <div class="pub-venue">Under review</div>
                     </div>
-                </div>
 
-                <!-- Publications Tab Content -->
-                <div id="publications" class="tab-content">
-                    <section class="section">
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://arxiv.org/abs/2506.06549" target="_blank">Geometry-Aware Gradient Clipping for Differentially Private SGD</a>
-                            </div>
-                            <div class="pub-authors">
-                                <strong>Atefeh Gilani</strong>, Naima Tasnim, Lalitha Sankar, Oliver Kosut
-                            </div>
-                            <div class="pub-venue">Under review</div>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
                         </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">ICML 2025</div>
+                    </div>
 
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://openreview.net/pdf?id=wCBuHDe7Ud" target="_blank">Optimizing Noise Distributions for Differential Privacy</a>
-                            </div>
-                            <div class="pub-authors">
-                                <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
-                            </div>
-                            <div class="pub-venue">ICML 2025</div>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">Reveal-or-Obscure: A Differentially Private Sampling Algorithm for Discrete Distributions</a>
                         </div>
+                        <div class="pub-authors">
+                            Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
+                        </div>
+                        <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
+                    </div>
 
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://openreview.net/pdf?id=0jbYibPFuV" target="_blank">Reveal-or-Obscure: A Differentially Private Sampling Algorithm for Discrete Distributions</a>
-                            </div>
-                            <div class="pub-authors">
-                                Naima Tasnim, <strong>Atefeh Gilani</strong>, Lalitha Sankar, Oliver Kosut
-                            </div>
-                            <div class="pub-venue">ICML 2025 Workshop on Machine Unlearning for Generative AI</div>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">Unifying Privacy Measures via Maximal (α,β)-Leakage (MαbeL)</a>
                         </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
+                    </div>
 
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://ieeexplore.ieee.org/abstract/document/10491106" target="_blank">Unifying Privacy Measures via Maximal (α,β)-Leakage (MαbeL)</a>
-                            </div>
-                            <div class="pub-authors">
-                                <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
-                            </div>
-                            <div class="pub-venue">IEEE Transactions on Information Theory 2024</div>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
                         </div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
+                        </div>
+                        <div class="pub-venue">TPDP Workshop 2024</div>
+                    </div>
 
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://github.com/SankarLab/Renyi-DP-Mechanism-Design/blob/main/Optimizing%20Discrete%20Noise%20Distributions%20for%20Renyi%20Differential%20Privacy.pdf" target="_blank">Optimizing Discrete Noise Distributions for Rényi Differential Privacy</a>
-                            </div>
-                            <div class="pub-authors">
-                                <strong>Atefeh Gilani</strong>, Juan Felipe Gomez, Shahab Asoodeh, Flavio Calmon, Oliver Kosut, Lalitha Sankar
-                            </div>
-                            <div class="pub-venue">TPDP Workshop 2024</div>
+                    <div class="publication">
+                        <div class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">An Alphabet of Leakage Measures</a>
                         </div>
-
-                        <div class="publication">
-                            <div class="pub-title">
-                                <a href="https://ieeexplore.ieee.org/abstract/document/9965918" target="_blank">An Alphabet of Leakage Measures</a>
-                            </div>
-                            <div class="pub-authors">
-                                <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
-                            </div>
-                            <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
+                        <div class="pub-authors">
+                            <strong>Atefeh Gilani</strong>, Gowtham R. Kurri, Oliver Kosut, Lalitha Sankar
                         </div>
-                    </section>
-                </div>
-            </main>
+                        <div class="pub-venue">IEEE Information Theory Workshop 2022</div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
@@ -656,18 +670,20 @@
 
         // Add a subtle typing effect to the name (optional)
         const nameElement = document.querySelector('.name');
-        const originalText = nameElement.textContent;
-        nameElement.textContent = '';
-        
-        let i = 0;
-        const typeInterval = setInterval(() => {
-            if (i < originalText.length) {
-                nameElement.textContent += originalText[i];
-                i++;
-            } else {
-                clearInterval(typeInterval);
-            }
-        }, 80);
+        if (nameElement) {
+            const originalText = nameElement.textContent;
+            nameElement.textContent = '';
+            
+            let i = 0;
+            const typeInterval = setInterval(() => {
+                if (i < originalText.length) {
+                    nameElement.textContent += originalText[i];
+                    i++;
+                } else {
+                    clearInterval(typeInterval);
+                }
+            }, 80);
+        }
     </script>
 </body>
 </html>
